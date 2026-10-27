@@ -27,10 +27,10 @@ export function WhySection() {
               <strong className="font-semibold text-forest">reunir 100 juguetes y concentrar esta primera edición en una sola comunidad.</strong>
             </p>
           </div>
-          {/* Frase de cierre: tipografía y una barra gruesa, sin caja de color. */}
-          <blockquote className="mt-10 flex items-center gap-6 border-l-[6px] border-coral py-1 pl-6">
-            <p className="font-display text-[26px] leading-[1.15] font-black tracking-[-0.02em] text-forest md:text-[32px]">
-              100 regalos.
+          {/* Frase de cierre: solo tipografía; el énfasis viene del color de la primera línea, sin barra lateral ni caja. */}
+          <blockquote className="mt-12 flex items-center gap-6">
+            <p className="font-display text-[26px] leading-[1.15] font-black tracking-[-0.02em] text-forest md:text-[34px]">
+              <span className="text-coral-strong">100 regalos.</span>
               <br />
               Una comunidad.
               <br />

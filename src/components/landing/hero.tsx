@@ -44,7 +44,7 @@ export function Hero() {
               <ProgressBar current={p.current} goal={p.goal} className="h-5" />
               <Illo name="misc-gift-sparkle" className="w-9 shrink-0" />
             </div>
-            <p className="mt-3 text-sm text-ink/80">Última actualización: {campaign.lastUpdated}</p>
+            <p className="mt-3 text-[15px] text-ink/80">Última actualización: {campaign.lastUpdated}</p>
           </div>
         </div>
         <div className="relative mx-auto w-full max-w-[580px]">

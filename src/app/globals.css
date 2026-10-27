@@ -150,7 +150,7 @@
   /* Título de sección: 40–60px. */
   .t-section {
     font-size: clamp(2.375rem, 1.7rem + 2.9vw, 3.75rem);
-    line-height: 1;
+    line-height: 1.04;
     letter-spacing: -0.03em;
     font-weight: 900;
     hyphens: none;
@@ -172,6 +172,10 @@
     max-width: 38rem;
   }
   /* Cifras grandes (avance, metas): tabulares y apretadas. */
+  /* Texto claro sobre fondo verde oscuro: un poco más de interlineado y de tracking para compensar la irradiación. */
+  .on-dark {
+    letter-spacing: 0.01em;
+  }
   .t-figure {
     font-family: var(--font-display);
     font-weight: 900;
@@ -181,7 +185,22 @@
   }
 }
 
+/* ---------- Superficies del navegador, con la paleta de la campaña ---------- */
+html {
+  color-scheme: light;
+  accent-color: var(--coral-strong);
+  caret-color: var(--coral-strong);
+  scrollbar-color: color-mix(in srgb, var(--forest) 55%, transparent) var(--cream);
+  scrollbar-width: auto;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
 ::selection { background: var(--golden); color: var(--ink); }
+/* El anillo de foco verde desaparece sobre fondos verdes: allí va dorado. */
+.bg-forest :focus-visible,
+footer :focus-visible {
+  outline-color: var(--golden);
+}
 
 a:not([class]) {
   text-underline-offset: 0.18em;
@@ -215,12 +234,11 @@ a:not([class]) {
   to { clip-path: inset(0 0 0 0 round 999px); }
 }
 
+/* Movimiento reducido: sin desplazamientos ni animaciones de entrada, pero se conservan los cambios de color (el estado sigue siendo visible). */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
+  .reveal, .reveal-late, .bar-fill { animation: none; }
+  *, *::before, *::after { scroll-behavior: auto; }
 }
 
 html, body { overflow-x: clip; }

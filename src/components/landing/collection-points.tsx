@@ -48,7 +48,7 @@ export function CollectionPoints() {
                   <div className="flex items-center gap-3">
                     <dt className="sr-only">Horario</dt>
                     <Clock className="size-5 shrink-0 text-coral-strong" aria-hidden />
-                    <dd>{p.schedule}</dd>
+                    <dd className="tabular-nums">{p.schedule}</dd>
                   </div>
                   <div className="flex items-center gap-3">
                     <dt className="sr-only">Fecha límite</dt>
