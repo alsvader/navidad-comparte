@@ -11,13 +11,10 @@ const description =
   "Súmate a nuestra recolecta navideña de juguetes en Huimanguillo, Tabasco. Queremos reunir 100 regalos para niñas y niños de una comunidad esta Navidad."
 
 /**
- * URL pública del sitio. El dominio definitivo está PENDIENTE: define `NEXT_PUBLIC_SITE_URL`
- * (p. ej. https://tu-dominio.mx, sin barra final) en el hosting antes de publicar. En Vercel se
- * usa el dominio de producción del proyecto como respaldo; en local, http://localhost:3000.
+ * URL pública del sitio. Dominio provisional: https://navidad-comparte.vercel.app (sin barra final).
+ * Define `NEXT_PUBLIC_SITE_URL` para sobrescribirlo cuando haya dominio definitivo.
  */
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "http://localhost:3000")
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://navidad-comparte.vercel.app"
 
 // La imagen para compartir (1200×630) y su texto alternativo viven en
 // `opengraph-image.png`, `twitter-image.png` y sus `*.alt.txt`; Next.js agrega

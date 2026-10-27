@@ -74,11 +74,11 @@ const tree = h(
       ]),
       h("div", { position: "absolute", left: 0, top: 410, gap: 14, flexDirection: "row" }, [
         pill("Dona un juguete", C.forest, C.cream),
-        pill("Huimanguillo, Tabasco", C.golden, C.forest),
+        pill("Recolecta navideña 2026", C.golden, C.forest),
       ]),
       h("div", {
         position: "absolute", left: 0, top: 490, fontFamily: "Inter", fontWeight: 600, fontSize: 26, color: C.ink,
-      }, "Recolecta navideña de juguetes · 2026"),
+      }, "Juguetes nuevos para niñas y niños"),
     ]),
   ],
 )
