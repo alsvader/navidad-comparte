@@ -40,7 +40,7 @@ export function Eyebrow({ variant = "action", children, className }: { variant?:
     <p
       className={cn(
         "inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[13px] font-semibold tracking-wide uppercase",
-        variant === "action" ? "bg-coral-soft text-coral" : "bg-golden text-forest",
+        variant === "action" ? "bg-coral-soft text-coral-strong" : "bg-golden text-forest",
         className
       )}
     >
@@ -54,8 +54,45 @@ type IlloProps = Omit<ComponentProps<typeof Image>, "src" | "width" | "height" |
   alt?: string
 }
 
+/**
+ * Deduce el atributo `sizes` a partir de las clases de ancho (w-8, w-[260px], md:w-[190px], max-w-[320px]…)
+ * para que next/image sirva la variante justa en vez de la imagen intrínseca completa.
+ * Si no hay ancho fijo, usa un valor conservador según el ancho intrínseco.
+ */
+function inferSizes(className: string | undefined, intrinsic: number, aspect: number): string {
+  const px = (token: string) => {
+    const m = token.match(/^(?:w|max-w|size)-(?:\[(\d+(?:\.\d+)?)px\]|(\d+(?:\.\d+)?))$/)
+    if (!m) return null
+    return m[1] ? Number(m[1]) : Number(m[2]) * 4
+  }
+  const tokens = (className ?? "").split(/\s+/)
+  let base: number | null = null
+  const bps: Array<[string, number]> = []
+  for (const t of tokens) {
+    const parts = t.split(":")
+    const v = px(parts[parts.length - 1])
+    if (v === null) continue
+    if (parts.length === 1) base = base === null ? v : Math.min(base, v)
+    else if (parts.length === 2 && ["sm", "md", "lg", "xl"].includes(parts[0])) bps.push([parts[0], v])
+  }
+  if (base === null && !bps.length) {
+    // Sin ancho fijo: si hay altura fija/máxima (h-10, max-h-36…) el ancho sale de la proporción.
+    for (const t of tokens) {
+      const m = t.match(/^(?:max-h|h)-(\d+(?:\.\d+)?)$/)
+      if (m) base = Math.round(Number(m[1]) * 4 * aspect)
+    }
+  }
+  const bpPx: Record<string, number> = { sm: 640, md: 768, lg: 1024, xl: 1280 }
+  if (base !== null || bps.length) {
+    const fallback = base ?? Math.min(intrinsic, 320)
+    const sorted = bps.sort((a, b) => bpPx[b[0]] - bpPx[a[0]]).map(([bp, v]) => `(min-width: ${bpPx[bp]}px) ${v}px`)
+    return [...sorted, `${fallback}px`].join(", ")
+  }
+  return `(min-width: 1024px) ${Math.min(intrinsic, 560)}px, 90vw`
+}
+
 /** Ilustración aprobada (ver assets/manifest.md). alt vacío = decorativa. */
-export function Illo({ name, alt = "", className, ...props }: IlloProps) {
+export function Illo({ name, alt = "", className, sizes, ...props }: IlloProps) {
   const i = illustrations[name]
   return (
     <Image
@@ -64,10 +101,16 @@ export function Illo({ name, alt = "", className, ...props }: IlloProps) {
       height={i.height}
       alt={alt}
       aria-hidden={alt === "" ? true : undefined}
+      sizes={sizes ?? inferSizes(className, i.width, i.width / i.height)}
       className={cn("h-auto select-none", className)}
       {...props}
     />
   )
+}
+
+/** Aviso accesible para enlaces que abren una pestaña nueva. */
+export function NewTab() {
+  return <span className="sr-only"> (se abre en una pestaña nueva)</span>
 }
 
 export function Card({ className, children }: { className?: string; children: ReactNode }) {

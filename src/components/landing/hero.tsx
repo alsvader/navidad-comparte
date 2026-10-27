@@ -32,7 +32,7 @@ export function Hero() {
           </div>
           <div className="mt-8 max-w-[28rem] rounded-[20px] bg-white/70 p-5 shadow-soft">
             <p className="font-display text-lg font-extrabold text-forest">
-              <span className="mr-2 text-coral">{p.current}</span>de {p.goal} juguetes recolectados
+              <span className="mr-2 text-coral-strong">{p.current}</span>de {p.goal} juguetes recolectados
             </p>
             <div className="mt-3 flex items-center gap-3">
               <ProgressBar current={p.current} goal={p.goal} />

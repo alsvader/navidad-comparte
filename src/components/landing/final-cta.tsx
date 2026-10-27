@@ -13,7 +13,7 @@ export function FinalCTA() {
         <div className="order-1 lg:order-2">
           <div className="relative w-fit">
             <h2 id="cta-title" className="text-[44px] leading-[1.02] font-black md:text-[72px]">
-              ¿Nos ayudas <br />a llegar a <span className="text-coral">{p.goal}?</span>
+              ¿Nos ayudas <br />a llegar a <span className="text-coral-light">{p.goal}?</span>
             </h2>
             <Illo name="deco-heart-coral" className="absolute -top-2 -right-10 hidden w-8 md:block" />
             <Illo name="deco-star-golden" className="absolute -bottom-3 -left-8 hidden w-8 md:block" />
@@ -24,7 +24,7 @@ export function FinalCTA() {
           <div className="mt-8 rounded-[24px] border-2 border-cream/15 bg-white/5 p-6">
             <p className="font-display leading-none font-black">
               <span className="whitespace-nowrap">
-                <span className="text-[48px] text-coral sm:text-6xl md:text-[84px]">{p.current}</span>
+                <span className="text-[48px] text-coral-light sm:text-6xl md:text-[84px]">{p.current}</span>
                 <span className="text-[48px] sm:text-6xl md:text-[84px]"> / {p.goal}</span>
               </span>
               <span className="ml-3 text-2xl font-extrabold">regalos</span>
@@ -32,7 +32,7 @@ export function FinalCTA() {
             <p className="mt-3 font-display text-lg font-extrabold">
               {p.remaining > 0 ? (
                 <>
-                  Nos faltan <span className="text-coral">{p.remaining}</span> para llegar a la meta.
+                  Nos faltan <span className="text-golden">{p.remaining}</span> para llegar a la meta.
                 </>
               ) : (
                 "¡Meta cumplida!"

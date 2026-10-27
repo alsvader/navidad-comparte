@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react"
 import { campaign, whatsappUrl } from "@/content/campaign.config"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-import { Container, Eyebrow, Illo, Section } from "./primitives"
+import { Container, Eyebrow, Illo, NewTab, Section } from "./primitives"
 
 export function PartnersSection() {
   return (
@@ -24,12 +24,12 @@ export function PartnersSection() {
             const tile = p.logo ? (
               <Image src={p.logo} alt={p.name} width={180} height={64} className="h-14 w-auto object-contain" />
             ) : (
-              <span className="text-sm font-semibold text-ink/50">Logo · {p.name}</span>
+              <span className="text-sm font-semibold text-ink/70">Logo · {p.name}</span>
             )
             return (
               <li key={p.name} className={cn("flex h-24 items-center justify-center rounded-[20px] border-2 border-line bg-white/60 p-4", p.logo ? "border-solid" : "border-dashed")}>
                 {p.url ? (
-                  <a href={p.url} target="_blank" rel="noopener noreferrer">
+                  <a href={p.url} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center rounded-lg transition-opacity hover:opacity-80">
                     {tile}
                   </a>
                 ) : (
@@ -42,7 +42,7 @@ export function PartnersSection() {
         <div className="mt-5 relative flex flex-col items-center gap-4 rounded-[24px] bg-coral-soft p-6 text-center sm:flex-row sm:text-left">
           <Illo name="aliados-handshake" className="w-36 shrink-0" />
           <p className="font-display text-[28px] leading-tight font-black text-forest sm:flex-1 sm:border-l-2 sm:border-line sm:pl-6 sm:text-center md:text-[40px]">
-            <span className="text-coral">Gracias</span> por hacer equipo con nosotros.
+            <span className="text-coral-strong">Gracias</span> por hacer equipo con nosotros.
           </p>
           <Illo name="deco-rays-fan-a" className="absolute top-3 right-6 hidden w-12 sm:block" />
         </div>
@@ -60,7 +60,7 @@ export function PartnersSection() {
             rel="noopener noreferrer"
             className={buttonVariants({ variant: "secondary" })}
           >
-            Quiero sumarme como aliado <ArrowRight aria-hidden />
+            Quiero sumarme como aliado <NewTab /> <ArrowRight aria-hidden />
           </a>
         </div>
       </Container>

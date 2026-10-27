@@ -12,6 +12,11 @@
   --ink: #17322a;
   --white: #ffffff;
 
+  /* Coral accesible (AA ≥4.5:1 sobre blanco/cream/coral-soft) para texto pequeño y fondos de botón con texto blanco. */
+  --coral-strong: #c43221;
+  --coral-strong-dark: #a42a1b;
+  /* Coral para texto sobre fondos verdes oscuros (forest). */
+  --coral-light: #ff9482;
   --coral-soft: rgba(240, 79, 61, 0.1);
   --golden-soft: rgba(246, 190, 62, 0.14);
   --sky-soft: rgba(104, 197, 232, 0.16);
@@ -50,6 +55,9 @@
   --color-golden: var(--golden);
   --color-sky: var(--sky);
   --color-ink: var(--ink);
+  --color-coral-strong: var(--coral-strong);
+  --color-coral-light: var(--coral-light);
+  --color-coral-strong-dark: var(--coral-strong-dark);
   --color-coral-soft: var(--coral-soft);
   --color-golden-soft: var(--golden-soft);
   --color-sky-soft: var(--sky-soft);
@@ -103,6 +111,17 @@
   }
   h1, h2, h3, h4 {
     @apply font-display;
+    text-wrap: balance;
+  }
+  p, li, dd {
+    text-wrap: pretty;
+  }
+  a, button, [role="button"] {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  button:not(:disabled) {
+    cursor: pointer;
   }
   :focus-visible {
     outline: 3px solid var(--forest);

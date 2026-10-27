@@ -3,7 +3,7 @@ import { campaign, whatsappUrl } from "@/content/campaign.config"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { WhatsAppIcon } from "./brand-icons"
-import { Container, Eyebrow, Illo, Section } from "./primitives"
+import { Container, Eyebrow, Illo, NewTab, Section } from "./primitives"
 
 export function CollectionPoints() {
   const points = campaign.collectionPoints.filter((p) => p.active)
@@ -27,7 +27,7 @@ export function CollectionPoints() {
         ) : (
           <ul className="mt-10 grid gap-5 md:grid-cols-3">
             {points.map((p) => (
-              <li key={p.id} className="flex flex-col rounded-[24px] border-2 border-golden/40 bg-white/60 p-6">
+              <li key={p.id} className="flex flex-col rounded-[24px] border-2 border-golden/40 bg-white/60 p-6 transition-[box-shadow,border-color] duration-200 hover:border-golden hover:shadow-soft">
                 <div className="relative flex h-40 items-end justify-center">
                   <MapPin className="absolute top-0 left-0 size-9 fill-coral text-coral [&>circle]:fill-white" aria-hidden />
                   <Illo name={p.illustration} alt={`Ilustración de ${p.name}`} className="max-h-36 w-auto" />
@@ -59,7 +59,7 @@ export function CollectionPoints() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={cn(buttonVariants({ variant: "outline" }), "mt-6 w-full")}
-                  aria-label={`Cómo llegar a ${p.name}`}
+                  aria-label={`Cómo llegar a ${p.name} (se abre en una pestaña nueva)`}
                 >
                   Cómo llegar <ArrowRight aria-hidden />
                 </a>
@@ -69,21 +69,21 @@ export function CollectionPoints() {
         )}
 
         <p className="mt-6 text-center">
-          <a href={campaign.allPointsMapUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-2 font-display font-extrabold text-coral hover:underline">
-            Ver todos en el mapa <ArrowRight className="size-5" aria-hidden />
+          <a href={campaign.allPointsMapUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-2 font-display font-extrabold text-coral-strong underline-offset-4 hover:underline">
+            Ver todos en el mapa <NewTab /> <ArrowRight className="size-5" aria-hidden />
           </a>
         </p>
 
         <div className="mt-6 grid gap-5 md:grid-cols-2">
           <div className="flex flex-col gap-5 rounded-[24px] bg-forest-soft p-6 sm:flex-row sm:items-center">
             <span className="flex size-20 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white">
-              <WhatsAppIcon className="size-11" />
+              <WhatsAppIcon className="size-11" decorative />
             </span>
             <div>
               <h3 className="text-[22px] font-extrabold text-forest">¿Ningún punto te queda cerca?</h3>
               <p className="mt-1">Escríbenos y coordinamos contigo otra forma de recibir tu donación.</p>
               <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "secondary" }), "mt-4 w-full sm:w-auto")}>
-                Coordinar por WhatsApp <ArrowRight aria-hidden />
+                Coordinar por WhatsApp <NewTab /> <ArrowRight aria-hidden />
               </a>
             </div>
           </div>
@@ -93,7 +93,7 @@ export function CollectionPoints() {
               <h3 className="text-[22px] font-extrabold text-forest">¿Tienes un espacio y quieres ayudarnos?</h3>
               <p className="mt-1">Conviértete en punto de acopio y ayúdanos a recibir más juguetes.</p>
               <a href={whatsappUrl("Hola, tengo un espacio y quiero ser punto de acopio de Navidad que se comparte.")} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "secondary" }), "mt-4 w-full sm:w-auto")}>
-                Quiero ser punto de acopio <ArrowRight aria-hidden />
+                Quiero ser punto de acopio <NewTab /> <ArrowRight aria-hidden />
               </a>
             </div>
           </div>

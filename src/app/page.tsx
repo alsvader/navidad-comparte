@@ -14,7 +14,7 @@ import { Footer } from "@/components/landing/footer"
 export default function LandingPage() {
   return (
     <>
-      <a href="#contenido" className="sr-only z-[60] rounded-full bg-forest px-4 py-2 text-cream focus:not-sr-only focus:fixed focus:top-3 focus:left-3">
+      <a href="#contenido" className="sr-only z-[60] rounded-full bg-forest px-5 py-3 font-semibold text-cream shadow-soft focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus-visible:outline-golden">
         Saltar al contenido
       </a>
       <Header />
