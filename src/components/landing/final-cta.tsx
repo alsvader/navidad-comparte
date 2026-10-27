@@ -18,7 +18,7 @@ export function FinalCTA() {
             <Illo name="deco-heart-coral" className="absolute -top-2 -right-10 hidden w-8 md:block" />
             <Illo name="deco-star-golden" className="absolute -bottom-3 -left-8 hidden w-8 md:block" />
           </div>
-          <p className="mt-6 t-lead text-cream">
+          <p className="on-dark mt-6 t-lead text-cream leading-[1.7]">
             Cada juguete nos acerca un poco más a la meta y a compartir una Navidad especial con niñas y niños de Huimanguillo.
           </p>
           <div className="mt-10">

@@ -49,7 +49,7 @@ export function GoalSection() {
                     </>
                   )}
                 </p>
-                <p className="mt-2 text-sm text-ink/80">Última actualización: {campaign.lastUpdated}</p>
+                <p className="mt-2 text-[15px] text-ink/80">Última actualización: {campaign.lastUpdated}</p>
               </div>
             </div>
             <ProgressBar current={p.current} goal={p.goal} className="mt-9 h-9 border-[3px] border-forest" />
@@ -59,8 +59,9 @@ export function GoalSection() {
                 <li
                   key={m.value}
                   className={cn(
-                    "absolute top-0 flex w-[84px] flex-col items-center text-center text-[13px] leading-tight sm:w-[104px] sm:text-sm",
-                    m.value === 100 ? "right-0 items-end text-right" : "-translate-x-1/2"
+                    "absolute top-0 flex w-[84px] flex-col items-center text-center text-[13px] leading-tight sm:w-[104px] sm:text-[15px]",
+                    m.value === 100 ? "right-0 w-[66px] items-end text-right sm:w-[104px]" : "-translate-x-1/2",
+                    m.value === 75 && "w-[56px] sm:w-[104px]"
                   )}
                   style={m.value === 100 ? undefined : { left: `${m.value}%` }}
                 >

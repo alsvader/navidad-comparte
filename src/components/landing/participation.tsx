@@ -106,7 +106,7 @@ export function ParticipationSection() {
             <h3 className="t-block text-cream">
               ¿Tienes otra forma de <span className="text-golden">ayudar?</span>
             </h3>
-            <p className="mt-2 text-lg leading-[28px] text-cream/90">
+            <p className="on-dark mt-2 text-lg leading-[30px] text-cream/90">
               También puedes apoyarnos con difusión, transporte, impresión, almacenamiento u otros recursos necesarios para la campaña.
             </p>
           </div>
