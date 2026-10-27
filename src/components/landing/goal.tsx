@@ -15,63 +15,65 @@ export function GoalSection() {
   const p = getProgress()
   const reached = p.current >= p.goal
   return (
-    <Section id="nuestra-meta" aria-labelledby="meta-title">
+    <Section id="nuestra-meta" aria-labelledby="meta-title" background="golden">
       <Container>
-        <div className="mx-auto max-w-3xl text-center">
-          <Eyebrow variant="impact">Nuestra meta</Eyebrow>
-          <h2 id="meta-title" className="mt-6 text-[40px] leading-[1.05] font-black text-forest md:text-[60px]">
-            Vamos por <span className="text-coral">{p.goal} regalos</span>
+        {/* El único encabezado centrado de la página: es el momento de la meta. */}
+        <div className="reveal mx-auto max-w-3xl text-center">
+          <Eyebrow variant="impact" className="bg-white">Nuestra meta</Eyebrow>
+          <h2 id="meta-title" className="t-section mt-7 text-forest">
+            Vamos por <span className="text-coral-strong">{p.goal} regalos</span>
           </h2>
-          <p className="mt-5 text-lg leading-[30px]">
+          <p className="t-lead mx-auto mt-6">
             Cada juguete suma y nos acerca a una meta muy sencilla: compartir esta Navidad con niñas y niños de una comunidad de Huimanguillo.
           </p>
         </div>
 
-        <div className="mt-12 grid items-center gap-10 lg:grid-cols-[1fr_1.45fr]">
-          <Illo name="meta-gift-pile" alt="Montaña de regalos con un oso, una pelota y un tren" className="mx-auto w-full max-w-[460px]" />
-          <div>
-            <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-              <div className="text-center sm:text-left">
-                <p className="font-display text-7xl leading-none font-black md:text-[96px]">
-                  <span className="text-coral">{p.current}</span>
+        <div className="mt-16 grid items-center gap-12 lg:grid-cols-[1fr_1.5fr] lg:gap-16">
+          <Illo name="meta-gift-pile" alt="Montaña de regalos con un oso, una pelota y un tren" className="reveal mx-auto w-full max-w-[460px]" />
+          <div className="reveal-late">
+            <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between sm:gap-8">
+              <div>
+                <p className="t-figure whitespace-nowrap text-[76px] sm:text-[104px] lg:text-[112px]">
+                  <span className="text-coral-strong">{p.current}</span>
                   <span className="text-forest"> / {p.goal}</span>
                 </p>
-                <p className="mt-2 font-display text-2xl font-extrabold text-forest">juguetes recolectados</p>
+                <p className="mt-4 font-display text-2xl font-extrabold tracking-[-0.01em] text-forest">juguetes recolectados</p>
               </div>
-              <div className="flex items-center gap-4 rounded-[20px] bg-coral-soft p-5">
-                <Illo name="misc-gift-sparkle" className="w-12" />
-                <div>
-                  <p className="font-display text-2xl leading-tight font-black text-forest">
-                    {reached ? (
-                      "¡Meta cumplida!"
-                    ) : (
-                      <>
-                        Nos faltan <br />
-                        <span className="text-coral-strong">{p.remaining} regalos</span>
-                      </>
-                    )}
-                  </p>
-                  <p className="mt-2 text-sm text-ink/80">
-                    Última actualización: <br />
-                    {campaign.lastUpdated}
-                  </p>
-                </div>
+              <div className="sm:pb-1 sm:text-right">
+                <p className="font-display text-[28px] leading-[1.05] whitespace-nowrap font-black tracking-[-0.02em] text-forest">
+                  {reached ? (
+                    "¡Meta cumplida!"
+                  ) : (
+                    <>
+                      Nos faltan <span className="text-coral-strong">{p.remaining} regalos</span>
+                    </>
+                  )}
+                </p>
+                <p className="mt-2 text-sm text-ink/80">Última actualización: {campaign.lastUpdated}</p>
               </div>
             </div>
-            <ProgressBar current={p.current} goal={p.goal} className="mt-8 h-9 border-[3px] border-forest" />
-            <ol className="relative mt-3 grid grid-cols-4 gap-2">
+            <ProgressBar current={p.current} goal={p.goal} className="mt-9 h-9 border-[3px] border-forest" />
+            {/* Hitos ubicados en su porcentaje real sobre la barra. */}
+            <ol className="relative mt-1 h-[132px]">
               {milestones.map((m) => (
-                <li key={m.value} className="flex flex-col items-center text-center text-[13px] leading-tight sm:text-sm">
-                  <span className="h-5 border-l-2 border-dashed border-forest/60" aria-hidden />
-                  <Illo name={m.illo} className={cn("mt-1 w-8", p.current < m.value && "opacity-70")} />
+                <li
+                  key={m.value}
+                  className={cn(
+                    "absolute top-0 flex w-[84px] flex-col items-center text-center text-[13px] leading-tight sm:w-[104px] sm:text-sm",
+                    m.value === 100 ? "right-0 items-end text-right" : "-translate-x-1/2"
+                  )}
+                  style={m.value === 100 ? undefined : { left: `${m.value}%` }}
+                >
+                  <span className={cn("h-4 w-[3px] rounded-full bg-forest/60", m.value === 100 && "mr-4")} aria-hidden />
+                  <Illo name={m.illo} className={cn("mt-1 w-8", m.value === 100 && "mr-1", p.current < m.value && "opacity-70")} />
                   <span className="mt-1 font-display font-black text-forest">{m.value}</span>
-                  <span>{m.copy}</span>
+                  <span className="text-ink/90">{m.copy}</span>
                 </li>
               ))}
             </ol>
-            <div className="mt-10 text-center">
-              <p className="font-display text-[32px] font-black text-forest">Cada regalo cuenta.</p>
-              <a href="#puntos-de-acopio" className={cn(buttonVariants({ size: "lg" }), "mt-5 w-full max-w-md")}>
+            <div className="mt-6 flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-8">
+              <p className="t-block text-forest">Cada regalo cuenta.</p>
+              <a href="#puntos-de-acopio" className={cn(buttonVariants({ size: "lg" }), "w-full sm:w-auto")}>
                 Quiero ayudar a llegar a {p.goal} <ArrowRight aria-hidden />
               </a>
             </div>

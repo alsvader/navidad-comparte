@@ -43,54 +43,74 @@ const options: ParticipationOption[] = [
   },
 ]
 
-function ParticipationCard({ o, n }: { o: ParticipationOption; n: number }) {
+function ParticipationFeature({ o }: { o: ParticipationOption }) {
   return (
-    <li className="flex flex-col rounded-[24px] border-2 border-line bg-white/60 p-6 transition-[box-shadow,border-color] duration-200 hover:border-forest/30 hover:shadow-soft">
-      <div className="relative flex h-44 items-center justify-end">
-        <span className="absolute top-0 left-0 font-display text-6xl leading-none font-black text-coral">{String(n).padStart(2, "0")}</span>
-        <Illo name={o.illustration} className="max-h-44 w-auto max-w-[78%]" />
+    <li className="reveal flex flex-col rounded-[32px] bg-white p-7 md:p-10 lg:row-span-2">
+      <div className="relative flex min-h-56 flex-1 items-center justify-center py-4">
+        <Illo name={o.illustration} className="max-h-60 w-auto max-w-[80%]" />
         {o.decos.map((d) => (
           <Illo key={d.name + d.className} name={d.name} className={cn("absolute", d.className)} />
         ))}
       </div>
-      <h3 className="mt-4 text-[26px] leading-tight font-extrabold text-forest">{o.title}</h3>
-      <p className="mt-2 flex-1 text-base leading-[26px]">{o.description}</p>
-      <a href={o.href} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "secondary" }), "mt-5 w-full")}>
+      <h3 className="t-block mt-6 text-forest">{o.title}</h3>
+      <p className="mt-3 text-lg leading-[28px]">{o.description}</p>
+      <a href={o.href} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "secondary", size: "lg" }), "mt-8 w-full")}>
         {o.action} <NewTab /> <ArrowRight aria-hidden />
       </a>
     </li>
   )
 }
 
+function ParticipationRow({ o }: { o: ParticipationOption }) {
+  return (
+    <li className="reveal-late grid items-center gap-6 rounded-[32px] bg-white p-6 sm:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] md:p-8">
+      <div className="relative flex h-40 items-center justify-center">
+        <Illo name={o.illustration} className="max-h-40 w-auto max-w-full" />
+        {o.decos.map((d) => (
+          <Illo key={d.name + d.className} name={d.name} className={cn("absolute", d.className)} />
+        ))}
+      </div>
+      <div>
+        <h3 className="text-[24px] leading-[1.1] font-extrabold tracking-[-0.02em] text-forest">{o.title}</h3>
+        <p className="mt-2 text-base leading-[26px]">{o.description}</p>
+        <a href={o.href} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "secondary" }), "mt-5 w-full sm:w-auto")}>
+          {o.action} <NewTab /> <ArrowRight aria-hidden />
+        </a>
+      </div>
+    </li>
+  )
+}
+
 export function ParticipationSection() {
   return (
-    <Section id="otras-formas" aria-labelledby="formas-title">
+    <Section id="otras-formas" aria-labelledby="formas-title" background="sky">
       <Container>
-        <Eyebrow variant="impact">Otras formas de sumarte</Eyebrow>
-        <div className="relative mt-6 w-fit">
-          <h2 id="formas-title" className="text-[40px] leading-[1.05] font-black text-forest md:text-[52px]">
-            También puedes ayudarnos <br />
-            <span className="text-coral">de otras maneras</span>
-          </h2>
-          <Illo name="deco-rays-fan-b" className="absolute -top-2 -right-16 hidden w-12 md:block" />
+        <div className="reveal grid items-end gap-6 lg:grid-cols-[1.3fr_1fr] lg:gap-16">
+          <div>
+            <Eyebrow variant="impact" className="bg-white">Otras formas de sumarte</Eyebrow>
+            <h2 id="formas-title" className="t-section mt-7 text-forest">
+              También puedes ayudarnos de otras maneras
+            </h2>
+          </div>
+          <p className="t-lead">Si quieres involucrarte más, hay distintas formas de ayudar a que esta iniciativa llegue más lejos.</p>
         </div>
-        <p className="mt-4 text-lg leading-[30px]">Si quieres involucrarte más, hay distintas formas de ayudar a que esta iniciativa llegue más lejos.</p>
-        <ul className="mt-8 grid gap-5 md:grid-cols-3">
-          {options.map((o, i) => (
-            <ParticipationCard key={o.title} o={o} n={i + 1} />
-          ))}
+        {/* Composición asimétrica: una opción protagonista y dos de apoyo, en lugar de tres tarjetas idénticas. */}
+        <ul className="mt-14 grid gap-5 lg:grid-cols-[1fr_1.1fr]">
+          <ParticipationFeature o={options[0]} />
+          <ParticipationRow o={options[1]} />
+          <ParticipationRow o={options[2]} />
         </ul>
-        <div className="mt-5 grid gap-5 rounded-[24px] bg-sky-tint p-6 md:grid-cols-[auto_1fr_auto] md:items-center">
+        <div className="reveal mt-5 grid gap-6 rounded-[32px] bg-forest p-7 text-cream md:grid-cols-[auto_1fr_auto] md:items-center md:gap-10 md:p-10">
           <Illo name="formas-chat-bubbles" className="w-28" />
-          <div className="md:border-l-2 md:border-line md:pl-6">
-            <h3 className="text-[28px] leading-tight font-extrabold text-forest">
-              ¿Tienes otra forma de <span className="text-coral">ayudar?</span>
+          <div>
+            <h3 className="t-block text-cream">
+              ¿Tienes otra forma de <span className="text-golden">ayudar?</span>
             </h3>
-            <p className="mt-1">
+            <p className="mt-2 text-lg leading-[28px] text-cream/90">
               También puedes apoyarnos con difusión, transporte, impresión, almacenamiento u otros recursos necesarios para la campaña.
             </p>
           </div>
-          <a href={`mailto:${campaign.contact.email}`} className={cn(buttonVariants({ variant: "secondary" }), "w-full md:w-auto md:min-w-[200px]")}>
+          <a href={`mailto:${campaign.contact.email}`} className={cn(buttonVariants({ variant: "outline-light", size: "lg" }), "w-full md:w-auto")}>
             Contáctanos <ArrowRight aria-hidden />
           </a>
         </div>

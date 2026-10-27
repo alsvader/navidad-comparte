@@ -5,7 +5,7 @@ import { illustrations, type IllustrationName } from "@/content/illustrations"
 
 type SectionProps = {
   id?: string
-  background?: "cream" | "forest" | "sky-soft" | "custom"
+  background?: "cream" | "forest" | "sky-soft" | "golden" | "sky" | "mint" | "custom"
   spacing?: "default" | "compact"
   className?: string
   children: ReactNode
@@ -21,7 +21,10 @@ export function Section({ id, background = "cream", spacing = "default", classNa
         background === "cream" && "bg-cream",
         background === "forest" && "bg-forest text-cream",
         background === "sky-soft" && "bg-sky-soft",
-        spacing === "default" ? "py-16 md:py-24" : "py-12 md:py-16",
+        background === "golden" && "bg-golden-field",
+        background === "sky" && "bg-sky-field",
+        background === "mint" && "bg-mint-field",
+        spacing === "default" ? "py-20 md:py-32" : "py-16 md:py-24",
         className
       )}
       {...rest}
@@ -39,7 +42,7 @@ export function Eyebrow({ variant = "action", children, className }: { variant?:
   return (
     <p
       className={cn(
-        "inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[13px] font-semibold tracking-wide uppercase",
+        "inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[15px] leading-6 font-semibold",
         variant === "action" ? "bg-coral-soft text-coral-strong" : "bg-golden text-forest",
         className
       )}
@@ -113,8 +116,9 @@ export function NewTab() {
   return <span className="sr-only"> (se abre en una pestaña nueva)</span>
 }
 
+/** Superficie rellena (sin borde ni sombra en reposo): la jerarquía sale del tono, no de la línea. */
 export function Card({ className, children }: { className?: string; children: ReactNode }) {
-  return <div className={cn("rounded-[28px] border-2 border-line bg-white/60", className)}>{children}</div>
+  return <div className={cn("rounded-[32px] bg-white", className)}>{children}</div>
 }
 
 export function ProgressBar({ current, goal, className, track = "light" }: { current: number; goal: number; className?: string; track?: "light" | "dark" }) {
@@ -126,10 +130,10 @@ export function ProgressBar({ current, goal, className, track = "light" }: { cur
       aria-valuemax={goal}
       aria-valuenow={current}
       aria-label={`${current} de ${goal} juguetes recolectados`}
-      className={cn("h-4 w-full overflow-hidden rounded-full", track === "light" ? "bg-forest-soft" : "bg-cream", className)}
+      className={cn("h-4 w-full overflow-hidden rounded-full", track === "light" ? "bg-forest/15" : "bg-cream/90", className)}
     >
       <div
-        className="h-full rounded-full bg-coral bg-[repeating-linear-gradient(135deg,rgba(255,255,255,0.18)_0_8px,transparent_8px_16px)] transition-[width] duration-700 ease-out"
+        className="bar-fill h-full rounded-full bg-coral"
         style={{ width: `${pct}%` }}
       />
     </div>

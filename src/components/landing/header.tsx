@@ -7,9 +7,13 @@ import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { Container, Illo } from "./primitives"
 
+// Barra fija: es un overlay real, el único elemento con sombra, y solo al hacer scroll.
+const barShadow = "shadow-[0_8px_24px_-12px_rgba(24,77,58,0.28)]" // taste-skill-ignore
+
 export function Header() {
   const [open, setOpen] = useState(false)
   const [active, setActive] = useState<string | null>(null)
+  const [scrolled, setScrolled] = useState(false)
   const toggleRef = useRef<HTMLButtonElement>(null)
 
   // Sección activa en la navegación (scroll-spy ligero con IntersectionObserver).
@@ -22,7 +26,11 @@ export function Header() {
       { rootMargin: "-40% 0px -55% 0px" }
     )
     els.forEach((el) => io.observe(el))
-    const onScroll = () => { if (window.scrollY < 200) setActive(null) }
+    const onScroll = () => {
+      if (window.scrollY < 200) setActive(null)
+      setScrolled(window.scrollY > 8)
+    }
+    onScroll()
     window.addEventListener("scroll", onScroll, { passive: true })
     return () => { io.disconnect(); window.removeEventListener("scroll", onScroll) }
   }, [])
@@ -38,13 +46,13 @@ export function Header() {
   }, [open])
 
   return (
-    <header className="sticky top-0 z-50 border-b-2 border-line/60 bg-cream/90 backdrop-blur-sm supports-[backdrop-filter]:bg-cream/80">
+    <header className={cn("sticky top-0 z-50 bg-cream transition-shadow duration-200", scrolled && barShadow)}>
       <Container className="flex h-[76px] items-center justify-between gap-6">
         <a href="#inicio" className="shrink-0 rounded-lg transition-opacity hover:opacity-80" aria-label="Navidad que se comparte · inicio">
           <Illo name="header-logo-horizontal" priority className="w-[168px] md:w-[190px]" />
         </a>
         <nav aria-label="Principal" className="hidden lg:block">
-          <ul className="flex items-center gap-7 text-[15px] font-medium text-ink">
+          <ul className="flex items-center gap-7 text-[15px] font-semibold text-ink">
             {navLinks.map((l) => (
               <li key={l.href}>
                 <a
@@ -78,7 +86,7 @@ export function Header() {
         </button>
       </Container>
       {open && (
-        <nav id="menu-movil" aria-label="Menú móvil" className="border-t-2 border-line bg-cream lg:hidden">
+        <nav id="menu-movil" aria-label="Menú móvil" className="bg-cream pb-2 lg:hidden">
           <Container className="flex flex-col gap-1 py-4">
             {navLinks.map((l) => (
               <a key={l.href} href={l.href} onClick={() => setOpen(false)} aria-current={active === l.href ? "location" : undefined}

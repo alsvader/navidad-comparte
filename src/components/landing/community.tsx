@@ -11,33 +11,31 @@ export function CommunitySection() {
   return (
     <Section id="la-comunidad" aria-labelledby="comunidad-title">
       <Container>
-        <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.1fr]">
-          <div>
+        <div className="grid items-center gap-14 lg:grid-cols-[1fr_1.05fr] lg:gap-20">
+          <div className="reveal">
             <Eyebrow variant="impact">La comunidad</Eyebrow>
-            <h2 id="comunidad-title" className="mt-6 text-[36px] leading-[1.08] font-black text-forest md:text-[48px]">
+            <h2 id="comunidad-title" className="t-section mt-7 text-forest">
               {c.confirmed && c.name ? (
                 <>
-                  Este año llegaremos a <span className="text-coral">{c.name}</span>
+                  Este año llegaremos a <span className="text-coral-strong">{c.name}</span>
                 </>
               ) : (
-                <>
-                  Esta Navidad llegaremos <span className="text-coral">a una comunidad de Huimanguillo</span>
-                </>
+                <>Esta Navidad llegaremos a una comunidad de Huimanguillo</>
               )}
             </h2>
-            <div className="mt-6 space-y-4 text-lg leading-[30px]">
+            <div className="t-lead mt-7 space-y-5">
               <p>Los juguetes recolectados serán entregados a niñas y niños de una comunidad del municipio de Huimanguillo, Tabasco.</p>
               <p>
                 Queremos concentrar esta primera edición en un solo lugar para organizar mejor la entrega y asegurarnos de que cada regalo
                 llegue a su destino.
               </p>
             </div>
-            <dl className="mt-8 grid grid-cols-3 divide-x-2 divide-line text-center">
+            <dl className="mt-10 grid grid-cols-3 gap-4 sm:gap-6">
               {stats.map((s) => (
-                <div key={s.small} className="flex flex-col items-center px-2">
+                <div key={s.small} className="flex flex-col items-start">
                   <Illo name={s.illo} className="h-10 w-auto" />
-                  <dd className="order-2 mt-2 font-display text-lg leading-tight font-black text-coral-strong md:text-2xl">{s.big}</dd>
-                  <dt className="order-3 text-sm">{s.small}</dt>
+                  <dd className="order-2 mt-3 font-display text-[17px] leading-[1.1] break-words sm:text-xl font-black tracking-[-0.02em] text-coral-strong md:text-[28px]">{s.big}</dd>
+                  <dt className="order-3 mt-1 text-base">{s.small}</dt>
                 </div>
               ))}
             </dl>
@@ -45,18 +43,18 @@ export function CommunitySection() {
           <Illo
             name="comunidad-village"
             alt="Ilustración de un pueblo tropical con casas, palmeras y una escuela"
-            className="w-full rounded-[40px_120px_40px_120px] object-cover"
+            className="reveal-late w-full rounded-[40px_120px_40px_120px] object-cover"
             sizes="(min-width: 1024px) 640px, 100vw"
           />
         </div>
         {!c.confirmed && (
-          <div className="mt-10 grid gap-5 rounded-[24px] bg-coral-soft p-6 md:grid-cols-[auto_1fr_1fr] md:items-center">
+          <div className="reveal mt-16 grid gap-6 rounded-[32px] bg-coral-soft p-7 md:grid-cols-[auto_1.1fr_1fr] md:items-center md:gap-10 md:p-10">
             <Illo name="comunidad-map-pin" className="w-14" />
-            <div className="md:border-x-2 md:border-line md:px-6">
-              <h3 className="text-xl font-extrabold text-forest">Próximamente conocerás la comunidad</h3>
-              <p className="mt-1 text-[15px]">Estamos trabajando en la selección y validación del lugar donde realizaremos la entrega.</p>
+            <div>
+              <h3 className="t-block text-forest">Próximamente conocerás la comunidad</h3>
+              <p className="mt-2 text-lg leading-[28px]">Estamos trabajando en la selección y validación del lugar donde realizaremos la entrega.</p>
             </div>
-            <p className="text-[15px]">
+            <p className="text-base leading-[26px]">
               Publicaremos aquí su nombre, información general y número aproximado de niñas y niños una vez que esté confirmada.
             </p>
           </div>
