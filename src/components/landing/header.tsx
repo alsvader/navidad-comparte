@@ -49,7 +49,7 @@ export function Header() {
     <header className={cn("sticky top-0 z-50 bg-cream transition-shadow duration-200", scrolled && barShadow)}>
       <Container className="flex h-[76px] items-center justify-between gap-6">
         <a href="#inicio" className="shrink-0 rounded-lg transition-opacity hover:opacity-80" aria-label="Navidad que se comparte · inicio">
-          <Illo name="header-logo-horizontal" priority className="w-[168px] md:w-[190px]" />
+          <Illo name="footer-logo-lockup-no-location" priority className="h-12 w-auto md:h-14" />
         </a>
         <nav aria-label="Principal" className="hidden lg:block">
           <ul className="flex items-center gap-7 text-[15px] font-semibold text-ink">
