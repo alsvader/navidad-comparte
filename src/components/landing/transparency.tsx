@@ -52,6 +52,8 @@ export function TransparencySection() {
           ))}
         </ol>
 
+        {/* Oculto hasta que concluya la campaña (campaign.status = "completed") */}
+        {completed && (
         <div className="mt-5 grid gap-6 rounded-[24px] border-2 border-line bg-white/60 p-6 lg:grid-cols-[250px_1fr] lg:items-center">
           <div>
             <Eyebrow variant="impact" className="text-xs whitespace-nowrap">Resultados de la campaña</Eyebrow>
@@ -75,6 +77,7 @@ export function TransparencySection() {
             })}
           </dl>
         </div>
+        )}
 
         <div className="mt-5 grid gap-5 md:grid-cols-2">
           <div className="flex flex-col gap-5 rounded-[24px] bg-golden-soft p-6 sm:flex-row sm:items-center">
@@ -102,6 +105,8 @@ export function TransparencySection() {
           </div>
         </div>
 
+        {/* Oculto hasta que concluya la campaña (campaign.status = "completed") */}
+        {completed && (
         <div className="mt-5 grid gap-5 rounded-[24px] bg-coral-soft p-6 md:grid-cols-[auto_1fr_1fr] md:items-center">
           <Illo name="transparencia-calendar-2026" className="w-36" />
           <p className="font-display text-xl leading-snug font-extrabold text-forest md:border-x-2 md:border-line md:px-6">
@@ -112,6 +117,7 @@ export function TransparencySection() {
             resultados.
           </p>
         </div>
+        )}
       </Container>
     </Section>
   )
