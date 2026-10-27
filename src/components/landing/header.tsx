@@ -171,7 +171,7 @@ export function Header() {
           </button>
         </Container>
         <nav aria-label="Menú móvil" className="relative flex flex-1 flex-col">
-          <Container className="flex flex-1 flex-col justify-center gap-6 pt-4 pb-10">
+          <Container className="flex flex-1 flex-col justify-start gap-6 pt-6 pb-10">
             <ul className="flex flex-col gap-1">
               {navLinks.map((l, i) => (
                 <li
