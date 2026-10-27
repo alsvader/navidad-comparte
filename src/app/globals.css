@@ -16,6 +16,9 @@
   --golden-soft: rgba(246, 190, 62, 0.14);
   --sky-soft: rgba(104, 197, 232, 0.16);
   --forest-soft: rgba(24, 77, 58, 0.08);
+  /* Tintes sobre blanco (derivados de sky / verde): evitan el tono grisáceo de rgba sobre cream */
+  --sky-tint: color-mix(in srgb, var(--sky) 18%, white);
+  --mint-tint: color-mix(in srgb, #5cb85c 17%, white);
   --line: rgba(24, 77, 58, 0.14);
 
   /* shadcn mapping */
@@ -51,6 +54,8 @@
   --color-golden-soft: var(--golden-soft);
   --color-sky-soft: var(--sky-soft);
   --color-forest-soft: var(--forest-soft);
+  --color-sky-tint: var(--sky-tint);
+  --color-mint-tint: var(--mint-tint);
   --color-line: var(--line);
 
   --color-background: var(--background);

@@ -1,6 +1,6 @@
 // Generado: dimensiones intrínsecas de /public/illustrations
 export const illustrations = {
-  "acopio-become-point-store": { src: "/illustrations/acopio-become-point-store.png", width: 285, height: 212 },
+  "acopio-become-point-store": { src: "/illustrations/acopio-become-point-store.png", width: 232, height: 212 },
   "acopio-coffee-shop": { src: "/illustrations/acopio-coffee-shop.png", width: 370, height: 282 },
   "acopio-map": { src: "/illustrations/acopio-map.png", width: 857, height: 726 },
   "acopio-plaza": { src: "/illustrations/acopio-plaza.png", width: 393, height: 243 },
@@ -45,7 +45,7 @@ export const illustrations = {
   "footer-logo-lockup": { src: "/illustrations/footer-logo-lockup.png", width: 955, height: 656 },
   "footer-santa-hat": { src: "/illustrations/footer-santa-hat.png", width: 281, height: 231 },
   "formas-business-team": { src: "/illustrations/formas-business-team.png", width: 396, height: 346 },
-  "formas-chat-bubbles": { src: "/illustrations/formas-chat-bubbles.png", width: 287, height: 194 },
+  "formas-chat-bubbles": { src: "/illustrations/formas-chat-bubbles.png", width: 233, height: 194 },
   "formas-collection-point": { src: "/illustrations/formas-collection-point.png", width: 364, height: 354 },
   "formas-empresa": { src: "/illustrations/formas-empresa.png", width: 553, height: 329 },
   "formas-punto-acopio": { src: "/illustrations/formas-punto-acopio.png", width: 600, height: 302 },

@@ -85,7 +85,7 @@ export function HowToDonate() {
           </div>
         </div>
 
-        <div className="mt-5 grid gap-6 rounded-[24px] bg-sky-soft p-6 lg:grid-cols-[220px_1fr] lg:items-center">
+        <div className="mt-5 grid gap-6 rounded-[24px] bg-sky-tint p-6 lg:grid-cols-[220px_1fr] lg:items-center">
           <div className="lg:border-r-2 lg:border-line lg:pr-6">
             <h3 className="text-[26px] leading-tight font-extrabold text-forest">¿No sabes qué elegir?</h3>
             <p className="mt-2 text-sm leading-[22px]">Aquí algunas ideas de juguetes que siempre alegran:</p>
