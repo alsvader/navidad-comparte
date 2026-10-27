@@ -47,3 +47,7 @@ Cuando un skill pida algo que contradiga el brief (paleta, fuentes, orden de sec
 - Antes de commit deben pasar `pnpm lint` y `pnpm build`.
 - El merge a `main` solo se hace cuando el responsable del proyecto lo pida explícitamente.
 - Trabajar solo en el repo local; no usar agentes en la nube.
+
+## llms.txt
+
+`/llms.txt` (formato de [llmstxt.org](https://llmstxt.org/), lo revisa Lighthouse) se genera en build con `src/lib/llms.ts` y `src/app/llms.txt/route.ts` a partir de `src/content/campaign.config.ts` y `src/lib/site.ts`. **No se edita a mano**: si cambias contenido de la campaña, las secciones/anclas de la página o los metadatos del sitio, revisa que siga en sincronía (`pnpm build && pnpm start`, luego `curl /llms.txt`). Mientras `campaign.placeholderData` sea `true` omite puntos de acopio, avance, fechas y contacto; ponlo en `false` al cargar los datos reales.

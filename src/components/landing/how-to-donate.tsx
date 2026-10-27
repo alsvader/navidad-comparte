@@ -1,5 +1,6 @@
 import { ArrowRight, Check, X } from "lucide-react"
 import { buttonVariants } from "@/components/ui/button"
+import { donationGuidelines } from "@/content/campaign.config"
 import { cn } from "@/lib/utils"
 import { Container, Eyebrow, Illo, Section } from "./primitives"
 
@@ -10,8 +11,7 @@ const steps = [
   { n: "03", title: "Llévalo a un punto de acopio.", text: "Consulta la ubicación que te quede más cerca.", illo: "donar-step-map-pin" }, // taste-skill-ignore
 ] as const
 
-const yes = ["Nuevo", "Sin envolver", "Seguro", "Apropiado para su edad", "Preferentemente sin pilas"]
-const avoid = ["Juguetes bélicos", "Usados o incompletos", "Juguetes dañados", "Artículos inseguros"]
+const { yes, avoid } = donationGuidelines
 const ideas = [
   { label: "Pelotas", illo: "donar-toy-ball" },
   { label: "Muñecos / peluches", illo: "donar-toy-teddy" },

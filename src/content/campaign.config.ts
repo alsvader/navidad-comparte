@@ -54,6 +54,11 @@ export type Contact = {
 }
 
 export type Campaign = {
+  /**
+   * `true` mientras puntos de acopio, avance, fechas, contacto y aliados sean de ejemplo.
+   * Con `true`, /llms.txt omite esos datos; cámbialo a `false` al cargar los datos reales.
+   */
+  placeholderData: boolean
   year: number
   status: CampaignStatus
   goal: number
@@ -70,6 +75,7 @@ export type Campaign = {
 }
 
 export const campaign: Campaign = {
+  placeholderData: true,
   year: 2026,
   status: "active",
   goal: 100,
@@ -141,6 +147,12 @@ export const campaign: Campaign = {
     privacyUrl: "#aviso-de-privacidad",
   },
 }
+
+/** Recomendaciones de donación: las usan la sección «Cómo donar» y /llms.txt. */
+export const donationGuidelines = {
+  yes: ["Nuevo", "Sin envolver", "Seguro", "Apropiado para su edad", "Preferentemente sin pilas"],
+  avoid: ["Juguetes bélicos", "Usados o incompletos", "Juguetes dañados", "Artículos inseguros"],
+} as const
 
 /* ---------- Derivados (nunca duplicar 37 / 63 / 37 % a mano) ---------- */
 export function getProgress(c: Campaign = campaign) {
