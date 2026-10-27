@@ -6,23 +6,23 @@ import { Container, Eyebrow, Illo, ProgressBar } from "./primitives"
 export function Hero() {
   const p = getProgress()
   return (
-    <section id="inicio" aria-labelledby="hero-title" className="relative overflow-hidden bg-cream pt-10 pb-28 md:pt-16 md:pb-40">
-      <Container className="relative z-10 grid items-center gap-10 lg:grid-cols-[55fr_45fr]">
+    <section id="inicio" aria-labelledby="hero-title" className="relative overflow-hidden bg-cream pt-10 pb-32 md:pt-20 md:pb-44">
+      <Container className="relative z-10 grid items-center gap-12 lg:grid-cols-[56fr_44fr]">
         <div>
           <Eyebrow variant="action">
             <Heart className="size-4 fill-coral" aria-hidden /> Navidad que se comparte
           </Eyebrow>
-          <h1 id="hero-title" className="mt-6 text-[44px] leading-[1] font-black tracking-tight text-forest sm:text-6xl lg:text-[76px]">
+          <h1 id="hero-title" className="t-hero mt-7 text-forest">
             <span className="text-coral">100</span> regalos
             <br />
             para <span className="text-coral">100 sonrisas</span>
             <br />
             en Huimanguillo.
           </h1>
-          <p className="mt-6 max-w-[34rem] text-lg leading-[30px] text-ink/90">
+          <p className="t-lead mt-7">
             Estamos reuniendo {p.goal} juguetes para niñas y niños de una comunidad de Huimanguillo, Tabasco.
           </p>
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:gap-4">
             <a href="#puntos-de-acopio" className={buttonVariants({ size: "lg" })}>
               Quiero donar un juguete <ArrowRight aria-hidden />
             </a>
@@ -30,25 +30,31 @@ export function Hero() {
               Conoce cómo funciona
             </a>
           </div>
-          <div className="mt-8 max-w-[28rem] rounded-[20px] bg-white/70 p-5 shadow-soft">
-            <p className="font-display text-lg font-extrabold text-forest">
-              <span className="mr-2 text-coral-strong">{p.current}</span>de {p.goal} juguetes recolectados
+          {/* Avance: cifra y barra directamente sobre el fondo, sin caja que los enmarque. */}
+          <div className="mt-12 max-w-[30rem]">
+            <p className="flex items-baseline gap-3">
+              <span className="t-figure text-[64px] text-coral-strong">{p.current}</span>
+              <span className="font-display text-xl leading-tight font-extrabold text-forest">
+                de {p.goal} juguetes
+                <br />
+                recolectados
+              </span>
             </p>
-            <div className="mt-3 flex items-center gap-3">
-              <ProgressBar current={p.current} goal={p.goal} />
-              <Illo name="misc-gift-sparkle" className="w-8 shrink-0" />
+            <div className="mt-4 flex items-center gap-3">
+              <ProgressBar current={p.current} goal={p.goal} className="h-5" />
+              <Illo name="misc-gift-sparkle" className="w-9 shrink-0" />
             </div>
-            <p className="mt-3 text-sm text-ink/70">Última actualización: {campaign.lastUpdated}</p>
+            <p className="mt-3 text-sm text-ink/80">Última actualización: {campaign.lastUpdated}</p>
           </div>
         </div>
-        <div className="relative mx-auto w-full max-w-[560px]">
+        <div className="relative mx-auto w-full max-w-[580px]">
           <Illo name="hero-100" priority className="relative mx-auto w-[82%]" />
           <Illo
             name="hero-gifts-teddy"
             priority
             alt="Pila de regalos con un oso de peluche, una pelota y un carrito"
             className="relative -mt-[34%] w-full"
-            sizes="(min-width: 1024px) 560px, 90vw"
+            sizes="(min-width: 1024px) 580px, 90vw"
           />
           <Illo name="deco-holly" className="absolute bottom-6 -left-6 w-20 -rotate-12" />
         </div>

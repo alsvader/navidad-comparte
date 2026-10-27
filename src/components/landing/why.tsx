@@ -9,14 +9,15 @@ const highlights = [
 export function WhySection() {
   return (
     <Section id="la-iniciativa" aria-labelledby="why-title">
-      <Container className="grid items-center gap-12 lg:grid-cols-2">
-        <div>
+      <Container className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
+        <div className="reveal">
           <Eyebrow variant="action">Por qué lo hacemos</Eyebrow>
-          <h2 id="why-title" className="mt-6 text-[40px] leading-[1.05] font-black text-forest md:text-[56px]">
-            Una Navidad <br />
-            <span className="text-coral">que se</span> comparte.
+          <h2 id="why-title" className="t-section mt-7 text-forest">
+            Una Navidad
+            <br />
+            que se comparte.
           </h2>
-          <div className="mt-6 space-y-5 text-lg leading-[30px]">
+          <div className="t-lead mt-8 space-y-5">
             <p>
               Esta iniciativa nace con una idea sencilla: reunir a personas que quieran compartir un poco de alegría esta Navidad con
               niñas y niños de una comunidad de Huimanguillo, Tabasco.
@@ -26,34 +27,35 @@ export function WhySection() {
               <strong className="font-semibold text-forest">reunir 100 juguetes y concentrar esta primera edición en una sola comunidad.</strong>
             </p>
           </div>
-          <blockquote className="mt-8 flex items-center gap-5 rounded-[20px] bg-golden-soft p-6">
-            <Illo name="deco-heart-rays" className="w-14 shrink-0" />
-            <p className="font-display text-xl leading-snug font-extrabold text-forest">
+          {/* Frase de cierre: tipografía y una barra gruesa, sin caja de color. */}
+          <blockquote className="mt-10 flex items-center gap-6 border-l-[6px] border-coral py-1 pl-6">
+            <p className="font-display text-[26px] leading-[1.15] font-black tracking-[-0.02em] text-forest md:text-[32px]">
               100 regalos.
               <br />
               Una comunidad.
               <br />
               Muchas personas haciendo equipo.
             </p>
+            <Illo name="deco-heart-rays" className="hidden w-14 shrink-0 sm:block" />
           </blockquote>
         </div>
-        <ul className="grid gap-8">
-          {highlights.map((h) => (
-            <li key={h.big} className="grid grid-cols-[1fr_1fr] items-center gap-4">
+        <ul className="reveal-late grid gap-6 md:gap-8">
+          {highlights.map((h, i) => (
+            <li key={h.big} className={`grid grid-cols-[1fr_1fr] items-center gap-4 ${i === 1 ? "lg:translate-x-10" : ""}`}>
               <div className="relative flex justify-center">
                 <Illo name={h.blob} className="absolute inset-0 m-auto w-[90%] opacity-90" />
                 <Illo name={h.illo} alt={h.alt} className="relative max-h-40 w-auto" />
               </div>
               <p className="font-display leading-none font-black">
-                {"pre" in h && <span className="block text-3xl text-forest md:text-4xl">{h.pre}</span>}
-                <span className="block text-6xl text-coral md:text-7xl">{h.big}</span>
-                <span className="mt-1 block text-2xl font-extrabold text-forest">{h.small}</span>
+                {"pre" in h && <span className="block text-3xl tracking-[-0.02em] text-forest md:text-4xl">{h.pre}</span>}
+                <span className="t-figure block text-[64px] text-coral md:text-[88px]">{h.big}</span>
+                <span className="mt-2 block text-2xl font-extrabold tracking-[-0.01em] text-forest">{h.small}</span>
               </p>
             </li>
           ))}
         </ul>
       </Container>
-      <Illo name="deco-star-golden" className="absolute top-12 right-[40%] hidden w-10 lg:block" />
+      <Illo name="deco-star-golden" className="absolute top-14 right-[42%] hidden w-10 lg:block" />
     </Section>
   )
 }

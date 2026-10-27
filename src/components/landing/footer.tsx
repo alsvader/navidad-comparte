@@ -15,12 +15,12 @@ const participa = [
 export function Footer() {
   const c = campaign.contact
   return (
-    <footer className="relative border-t-2 border-cream/10 bg-forest text-cream">
-      <Container className="pt-14 pb-8">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.25fr_0.9fr_1.15fr_1.45fr] lg:divide-x-2 lg:divide-cream/10">
+    <footer className="relative bg-forest text-cream">
+      <Container className="pt-4 pb-10 md:pt-8">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.25fr_0.9fr_1.15fr_1.45fr]">
           <div className="lg:pr-8">
             <Illo name="footer-logo-lockup" alt="Navidad que se comparte · Huimanguillo, Tabasco" className="w-[260px]" />
-            <p className="mt-5 text-[15px] leading-6 text-cream/90">
+            <p className="mt-5 text-base leading-[26px] text-cream/90">
               Una iniciativa comunitaria para reunir juguetes y compartir esta Navidad con niñas y niños de una comunidad de Huimanguillo.
             </p>
             <div className="mt-5 flex gap-3">
@@ -73,7 +73,7 @@ export function Footer() {
                   </span>
                   <span className="min-w-0">
                     <span className="block font-bold">Correo</span>
-                    <span className="text-sm break-words">{c.email}</span>
+                    <span className="text-base break-words">{c.email}</span>
                   </span>
                 </a>
               </li>
@@ -81,15 +81,14 @@ export function Footer() {
             <Illo name="footer-deco-star-heart" className="absolute -bottom-6 right-0 hidden w-20 lg:block" />
           </div>
         </div>
-        <div className="mt-12 flex flex-col items-center gap-4 border-t-2 border-cream/15 pt-6 text-center text-sm lg:flex-row lg:justify-between lg:text-left">
+        <div className="mt-16 flex flex-col items-center gap-4 text-center text-sm lg:flex-row lg:justify-between lg:text-left">
           <p className="font-bold">Huimanguillo, Tabasco · Navidad {campaign.year}</p>
           <p className="flex items-center gap-2 text-cream/85">
             <Illo name="misc-gift-sparkle" className="w-7" />
             Hecho con el apoyo de todas las personas que decidieron sumarse.
           </p>
-          <p className="flex items-center gap-4 font-semibold">
+          <p className="flex items-center gap-6 font-semibold">
             <a id="aviso-de-privacidad" href={c.privacyUrl} className="inline-flex min-h-11 items-center underline-offset-4 transition-colors hover:text-golden hover:underline">Aviso de privacidad</a>
-            <span aria-hidden className="text-cream/40">|</span>
             <a href={`mailto:${c.email}`} className="inline-flex min-h-11 items-center underline-offset-4 transition-colors hover:text-golden hover:underline">Contacto</a>
           </p>
         </div>
