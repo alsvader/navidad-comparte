@@ -45,7 +45,7 @@ const options: ParticipationOption[] = [
 
 function ParticipationFeature({ o }: { o: ParticipationOption }) {
   return (
-    <li className="reveal flex flex-col rounded-[32px] bg-white p-7 md:p-10 lg:row-span-2">
+    <li className="reveal lift flex flex-col rounded-[32px] bg-white p-7 md:p-10 lg:row-span-2">
       <div className="relative flex min-h-56 flex-1 items-center justify-center py-4">
         <Illo name={o.illustration} className="max-h-60 w-auto max-w-[80%]" />
         {o.decos.map((d) => (
@@ -63,7 +63,7 @@ function ParticipationFeature({ o }: { o: ParticipationOption }) {
 
 function ParticipationRow({ o }: { o: ParticipationOption }) {
   return (
-    <li className="reveal-late grid items-center gap-6 rounded-[32px] bg-white p-6 sm:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] md:p-8">
+    <li className="reveal-late lift grid items-center gap-6 rounded-[32px] bg-white p-6 sm:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] md:p-8">
       <div className="relative flex h-40 items-center justify-center">
         <Illo name={o.illustration} className="max-h-40 w-auto max-w-full" />
         {o.decos.map((d) => (
@@ -85,7 +85,7 @@ export function ParticipationSection() {
   return (
     <Section id="otras-formas" aria-labelledby="formas-title" background="sky">
       <Container>
-        <div className="reveal grid items-end gap-6 lg:grid-cols-[1.3fr_1fr] lg:gap-16">
+        <div className="reveal grid items-end gap-6 lg:grid-cols-[1.3fr_1fr] lg:gap-16" data-stagger data-stagger-step="140">
           <div>
             <Eyebrow variant="impact" className="bg-white">Otras formas de sumarte</Eyebrow>
             <h2 id="formas-title" className="t-section mt-7 text-forest">
@@ -100,8 +100,8 @@ export function ParticipationSection() {
           <ParticipationRow o={options[1]} />
           <ParticipationRow o={options[2]} />
         </ul>
-        <div className="reveal mt-5 grid gap-6 rounded-[32px] bg-forest p-7 text-cream md:grid-cols-[auto_1fr_auto] md:items-center md:gap-10 md:p-10">
-          <Illo name="formas-chat-bubbles" className="w-28" />
+        <div data-stagger className="reveal mt-5 grid gap-6 rounded-[32px] bg-forest p-7 text-cream md:grid-cols-[auto_1fr_auto] md:items-center md:gap-10 md:p-10">
+          <Illo name="formas-chat-bubbles" className="m-float w-28 [--dur:6s]" />
           <div>
             <h3 className="t-block text-cream">
               ¿Tienes otra forma de <span className="text-golden">ayudar?</span>

@@ -11,7 +11,7 @@ export function CollectionPoints() {
     <Section id="puntos-de-acopio" aria-labelledby="acopio-title" className="pt-16 md:pt-20">
       <Container>
         <div className="grid items-end gap-8 lg:grid-cols-[1.4fr_1fr]">
-          <div className="reveal">
+          <div className="reveal" data-stagger>
             <Eyebrow variant="action">Dónde donar</Eyebrow>
             <h2 id="acopio-title" className="t-section mt-7 text-forest">
               Encuentra un punto
@@ -20,7 +20,7 @@ export function CollectionPoints() {
             </h2>
             <p className="t-lead mt-6">Puedes llevar tu juguete a cualquiera de nuestros puntos de acopio participantes.</p>
           </div>
-          <Illo name="acopio-map" alt="Mapa con un pin de ubicación" className="reveal-late mx-auto w-full max-w-[300px] lg:mr-0" />
+          <Illo name="acopio-map" alt="Mapa con un pin de ubicación" className="reveal-late parallax mx-auto w-full max-w-[300px] lg:mr-0 [--px:14px]" />
         </div>
 
         {points.length === 0 ? (
@@ -31,7 +31,7 @@ export function CollectionPoints() {
             {points.map((p) => (
               <li
                 key={p.id}
-                className="reveal grid items-center gap-x-8 gap-y-5 rounded-[28px] bg-white p-4 sm:grid-cols-[168px_1fr] sm:p-5 lg:grid-cols-[200px_minmax(0,1.1fr)_minmax(0,1fr)_auto] lg:pr-8"
+                className="reveal lift grid items-center gap-x-8 gap-y-5 rounded-[28px] bg-white p-4 sm:grid-cols-[168px_1fr] sm:p-5 lg:grid-cols-[200px_minmax(0,1.1fr)_minmax(0,1fr)_auto] lg:pr-8"
               >
                 <div className="relative flex h-40 items-end justify-center rounded-[20px] bg-golden-soft px-4 pb-3 sm:h-36 lg:h-40">
                   <MapPin className="absolute top-3 left-3 size-7 fill-coral text-coral [&>circle]:fill-white" aria-hidden />
@@ -71,13 +71,13 @@ export function CollectionPoints() {
         )}
 
         <p className="mt-5 lg:text-right">
-          <a href={campaign.allPointsMapUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-2 font-display font-extrabold text-coral-strong underline-offset-4 hover:underline">
+          <a href={campaign.allPointsMapUrl} target="_blank" rel="noopener noreferrer" className="link-sweep inline-flex min-h-11 items-center gap-2 font-display font-extrabold text-coral-strong">
             Ver todos en el mapa <NewTab /> <ArrowRight className="size-5" aria-hidden />
           </a>
         </p>
 
         {/* Dos salidas alternativas en un mismo bloque, repartidas con espacio y sin divisor. */}
-        <div className="reveal mt-12 grid gap-10 rounded-[32px] bg-forest-soft p-7 md:p-12 lg:grid-cols-2 lg:gap-16">
+        <div className="reveal mt-12 grid gap-10 rounded-[32px] bg-forest-soft p-7 md:p-12 lg:grid-cols-2 lg:gap-16" data-stagger data-stagger-step="140">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
             <span className="flex size-20 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white">
               <WhatsAppIcon className="size-11" decorative />

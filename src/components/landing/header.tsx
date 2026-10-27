@@ -128,7 +128,7 @@ export function Header() {
         <button
           ref={toggleRef}
           type="button"
-          className="inline-flex size-12 items-center justify-center rounded-full border-2 border-forest text-forest transition-colors hover:bg-forest hover:text-cream active:scale-95 lg:hidden"
+          className="inline-flex size-12 items-center justify-center rounded-full border-2 border-forest text-forest transition-[color,background-color,scale] duration-200 hover:bg-forest hover:text-cream active:scale-95 lg:hidden"
           aria-expanded={open}
           aria-controls="menu-movil"
           aria-haspopup="dialog"
@@ -138,6 +138,8 @@ export function Header() {
           <Menu className="size-5" />
         </button>
       </Container>
+      {/* Progreso de lectura: CSS puro (scroll-driven animation), solo donde el navegador lo soporta. */}
+      <div aria-hidden className="scroll-progress pointer-events-none absolute inset-x-0 bottom-0 h-[3px] bg-coral" />
       {/* Menú móvil: capa fija a pantalla completa, siempre montada y oculta con visibility + inert (permite animar la salida). */}
       <div
         id="menu-movil"
@@ -163,7 +165,7 @@ export function Header() {
           <button
             ref={closeRef}
             type="button"
-            className="inline-flex size-12 items-center justify-center rounded-full border-2 border-forest text-forest transition-colors hover:bg-forest hover:text-cream active:scale-95"
+            className="inline-flex size-12 items-center justify-center rounded-full border-2 border-forest text-forest transition-[color,background-color,scale] duration-200 hover:bg-forest hover:text-cream active:scale-95"
             aria-label="Cerrar menú"
             onClick={() => closeMenu()}
           >

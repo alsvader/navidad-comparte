@@ -1,3 +1,4 @@
+import { CountUp } from "./count-up"
 import { Container, Eyebrow, Illo, Section } from "./primitives"
 
 const highlights = [
@@ -10,7 +11,7 @@ export function WhySection() {
   return (
     <Section id="la-iniciativa" aria-labelledby="why-title">
       <Container className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
-        <div className="reveal">
+        <div className="reveal" data-stagger>
           <Eyebrow variant="action">Por qué lo hacemos</Eyebrow>
           <h2 id="why-title" className="t-section mt-7 text-forest">
             Una Navidad
@@ -36,7 +37,7 @@ export function WhySection() {
               <br />
               Muchas personas haciendo equipo.
             </p>
-            <Illo name="deco-heart-rays" className="hidden w-14 shrink-0 sm:block" />
+            <Illo name="deco-heart-rays" className="m-pulse hidden w-14 shrink-0 sm:block" />
           </blockquote>
         </div>
         <ul className="reveal-late grid gap-6 md:gap-8">
@@ -48,14 +49,14 @@ export function WhySection() {
               </div>
               <p className="font-display leading-none font-black">
                 {"pre" in h && <span className="block text-3xl tracking-[-0.02em] text-forest md:text-4xl">{h.pre}</span>}
-                <span className="t-figure block text-[64px] text-coral md:text-[88px]">{h.big}</span>
+                <span className="t-figure block text-[64px] text-coral md:text-[88px]">{h.big === "100" ? <CountUp value={Number(h.big)} /> : h.big}</span>
                 <span className="mt-2 block text-2xl font-extrabold tracking-[-0.01em] text-forest">{h.small}</span>
               </p>
             </li>
           ))}
         </ul>
       </Container>
-      <Illo name="deco-star-golden" className="absolute top-14 right-[42%] hidden w-10 lg:block" />
+      <Illo name="deco-star-golden" className="m-twinkle absolute top-14 right-[42%] hidden w-10 lg:block" />
     </Section>
   )
 }
