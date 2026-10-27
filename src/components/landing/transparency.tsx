@@ -25,7 +25,7 @@ export function TransparencySection() {
   return (
     <Section id="transparencia" aria-labelledby="transparencia-title" background="mint">
       <Container>
-        <div className="reveal grid items-end gap-6 lg:grid-cols-[1.3fr_1fr] lg:gap-16">
+        <div className="reveal grid items-end gap-6 lg:grid-cols-[1.3fr_1fr] lg:gap-16" data-stagger data-stagger-step="140">
           <div>
             <Eyebrow variant="impact" className="bg-white">{completed ? `Resultados ${campaign.year}` : "Transparencia"}</Eyebrow>
             <h2 id="transparencia-title" className="t-section mt-7 text-forest">

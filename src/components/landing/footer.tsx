@@ -17,17 +17,17 @@ export function Footer() {
   return (
     <footer className="relative bg-forest text-cream">
       <Container className="pt-4 pb-10 md:pt-8">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.25fr_0.9fr_1.15fr_1.45fr]">
+        <div className="reveal grid gap-10 md:grid-cols-2 lg:grid-cols-[1.25fr_0.9fr_1.15fr_1.45fr]" data-stagger>
           <div className="lg:pr-8">
             <Illo name="footer-logo-lockup-no-location" alt="Navidad que se comparte" className="w-[260px]" />
             <p className="on-dark mt-5 text-base leading-[28px] text-cream/90">
               Una iniciativa comunitaria para reunir juguetes y compartir esta Navidad con niñas y niños de una comunidad de Huimanguillo.
             </p>
             <div className="mt-5 flex gap-3">
-              <a href={c.instagramUrl} target="_blank" rel="noopener noreferrer" className="flex size-12 items-center justify-center rounded-full bg-cream text-forest transition-[background-color,transform] duration-200 hover:-translate-y-0.5 hover:bg-golden motion-reduce:hover:translate-y-0">
+              <a href={c.instagramUrl} target="_blank" rel="noopener noreferrer" className="flex size-12 items-center justify-center rounded-full bg-cream text-forest transition-[background-color,translate] duration-200 hover:-translate-y-0.5 hover:bg-golden motion-reduce:hover:translate-y-0">
                 <InstagramIcon className="size-5" title="Instagram (se abre en una pestaña nueva)" />
               </a>
-              <a href={c.facebookUrl} target="_blank" rel="noopener noreferrer" className="flex size-12 items-center justify-center rounded-full bg-cream text-forest transition-[background-color,transform] duration-200 hover:-translate-y-0.5 hover:bg-golden motion-reduce:hover:translate-y-0">
+              <a href={c.facebookUrl} target="_blank" rel="noopener noreferrer" className="flex size-12 items-center justify-center rounded-full bg-cream text-forest transition-[background-color,translate] duration-200 hover:-translate-y-0.5 hover:bg-golden motion-reduce:hover:translate-y-0">
                 <FacebookIcon className="size-5" title="Facebook (se abre en una pestaña nueva)" />
               </a>
             </div>
@@ -78,13 +78,13 @@ export function Footer() {
                 </a>
               </li>
             </ul>
-            <Illo name="footer-deco-star-heart" className="absolute -bottom-6 right-0 hidden w-20 lg:block" />
+            <Illo name="footer-deco-star-heart" className="m-twinkle absolute -bottom-6 right-0 hidden w-20 lg:block" />
           </div>
         </div>
         <div className="mt-16 flex flex-col items-center gap-4 text-center text-[15px] lg:flex-row lg:justify-between lg:text-left">
           <p className="font-bold">Huimanguillo, Tabasco · Navidad {campaign.year}</p>
           <p className="flex items-center gap-2 text-cream/85">
-            <Illo name="misc-gift-sparkle" className="w-7" />
+            <Illo name="misc-gift-sparkle" className="m-twinkle w-7" />
             Hecho con el apoyo de todas las personas que decidieron sumarse.
           </p>
           <p className="flex items-center gap-6 font-semibold">

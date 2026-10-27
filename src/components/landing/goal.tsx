@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react"
 import { campaign, getProgress } from "@/content/campaign.config"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import { CountUp } from "./count-up"
 import { Container, Eyebrow, Illo, ProgressBar, Section } from "./primitives"
 
 const milestones = [
@@ -18,7 +19,7 @@ export function GoalSection() {
     <Section id="nuestra-meta" aria-labelledby="meta-title" background="golden">
       <Container>
         {/* El único encabezado centrado de la página: es el momento de la meta. */}
-        <div className="reveal mx-auto max-w-3xl text-center">
+        <div className="reveal mx-auto max-w-3xl text-center" data-stagger>
           <Eyebrow variant="impact" className="bg-white">Nuestra meta</Eyebrow>
           <h2 id="meta-title" className="t-section mt-7 text-forest">
             Vamos por <span className="text-coral-strong">{p.goal} regalos</span>
@@ -29,12 +30,12 @@ export function GoalSection() {
         </div>
 
         <div className="mt-16 grid items-center gap-12 lg:grid-cols-[1fr_1.5fr] lg:gap-16">
-          <Illo name="meta-gift-pile" alt="Montaña de regalos con un oso, una pelota y un tren" className="reveal mx-auto w-full max-w-[460px]" />
+          <Illo name="meta-gift-pile" alt="Montaña de regalos con un oso, una pelota y un tren" className="reveal parallax mx-auto w-full max-w-[460px] [--px:16px]" />
           <div className="reveal-late">
             <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between sm:gap-8">
               <div>
                 <p className="t-figure whitespace-nowrap text-[76px] sm:text-[104px] lg:text-[112px]">
-                  <span className="text-coral-strong">{p.current}</span>
+                  <CountUp value={p.current} className="text-coral-strong" />
                   <span className="text-forest"> / {p.goal}</span>
                 </p>
                 <p className="mt-4 font-display text-2xl font-extrabold tracking-[-0.01em] text-forest">juguetes recolectados</p>
@@ -54,7 +55,7 @@ export function GoalSection() {
             </div>
             <ProgressBar current={p.current} goal={p.goal} className="mt-9 h-9 border-[3px] border-forest" />
             {/* Hitos ubicados en su porcentaje real sobre la barra. */}
-            <ol className="relative mt-1 h-[132px]">
+            <ol className="reveal-late relative mt-1 h-[132px]" data-reveal-style="pop" data-stagger-step="190">
               {milestones.map((m) => (
                 <li
                   key={m.value}
@@ -81,10 +82,10 @@ export function GoalSection() {
           </div>
         </div>
       </Container>
-      <Illo name="deco-star-golden" className="absolute top-40 right-[8%] hidden w-10 md:block" />
-      <Illo name="deco-heart-coral" className="absolute top-36 left-[7%] hidden w-8 md:block" />
-      <Illo name="deco-rays-fan-a" className="absolute top-24 left-[22%] hidden w-14 lg:block" />
-      <Illo name="deco-rays-fan-b" className="absolute top-24 right-[22%] hidden w-14 lg:block" />
+      <Illo name="deco-star-golden" className="m-twinkle absolute top-40 right-[8%] hidden w-10 md:block" />
+      <Illo name="deco-heart-coral" className="m-pulse absolute top-36 left-[7%] hidden w-8 md:block" />
+      <Illo name="deco-rays-fan-a" className="m-twinkle absolute top-24 left-[22%] hidden w-14 lg:block [--delay:-1.4s]" />
+      <Illo name="deco-rays-fan-b" className="m-twinkle absolute top-24 right-[22%] hidden w-14 lg:block [--delay:-2.6s]" />
     </Section>
   )
 }

@@ -10,6 +10,7 @@ import { PartnersSection } from "@/components/landing/partners"
 import { TransparencySection } from "@/components/landing/transparency"
 import { FinalCTA } from "@/components/landing/final-cta"
 import { Footer } from "@/components/landing/footer"
+import { MotionProvider } from "@/components/landing/motion"
 
 export default function LandingPage() {
   return (
@@ -31,6 +32,7 @@ export default function LandingPage() {
         <FinalCTA />
       </main>
       <Footer />
+      <MotionProvider />
     </>
   )
 }

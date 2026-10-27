@@ -12,7 +12,7 @@ export function CommunitySection() {
     <Section id="la-comunidad" aria-labelledby="comunidad-title">
       <Container>
         <div className="grid items-center gap-14 lg:grid-cols-[1fr_1.05fr] lg:gap-20">
-          <div className="reveal">
+          <div className="reveal" data-stagger>
             <Eyebrow variant="impact">La comunidad</Eyebrow>
             <h2 id="comunidad-title" className="t-section mt-7 text-forest">
               {c.confirmed && c.name ? (
@@ -48,7 +48,7 @@ export function CommunitySection() {
           />
         </div>
         {!c.confirmed && (
-          <div className="reveal mt-16 grid gap-6 rounded-[32px] bg-coral-soft p-7 md:grid-cols-[auto_1.1fr_1fr] md:items-center md:gap-10 md:p-10">
+          <div data-stagger className="reveal mt-16 grid gap-6 rounded-[32px] bg-coral-soft p-7 md:grid-cols-[auto_1.1fr_1fr] md:items-center md:gap-10 md:p-10">
             <Illo name="comunidad-map-pin" className="w-14" />
             <div>
               <h3 className="t-block text-forest">Próximamente conocerás la comunidad</h3>

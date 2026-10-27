@@ -9,7 +9,7 @@ export function PartnersSection() {
   return (
     <Section id="aliados" aria-labelledby="aliados-title">
       <Container>
-        <div className="reveal grid items-end gap-6 lg:grid-cols-[1.3fr_1fr] lg:gap-16">
+        <div className="reveal grid items-end gap-6 lg:grid-cols-[1.3fr_1fr] lg:gap-16" data-stagger data-stagger-step="140">
           <div>
             <Eyebrow variant="impact">Aliados</Eyebrow>
             <h2 id="aliados-title" className="t-section mt-7 text-forest">
@@ -46,9 +46,9 @@ export function PartnersSection() {
             <p className="font-display text-[34px] leading-[1] font-black tracking-[-0.03em] text-forest md:text-[48px]">
               <span className="text-coral-strong">Gracias</span> por hacer equipo con nosotros.
             </p>
-            <Illo name="deco-rays-fan-a" className="absolute top-4 right-6 hidden w-12 sm:block" />
+            <Illo name="deco-rays-fan-a" className="m-twinkle absolute top-4 right-6 hidden w-12 sm:block" />
           </div>
-          <div className="reveal-late flex flex-col justify-between gap-6 rounded-[32px] bg-white p-6 sm:p-7 md:p-10">
+          <div className="reveal-late lift flex flex-col justify-between gap-6 rounded-[32px] bg-white p-6 sm:p-7 md:p-10">
             <div className="flex flex-col items-start gap-4 sm:flex-row sm:gap-5">
               <Illo name="aliados-gift-group" className="w-32 shrink-0" />
               <div>

@@ -28,7 +28,7 @@ export function HowToDonate() {
       <Section id="como-donar" aria-labelledby="donar-title" className="pb-0 md:pb-0">
         <Container>
           <div className="grid items-end gap-10 lg:grid-cols-[1.3fr_1fr]">
-            <div className="reveal">
+            <div className="reveal" data-stagger>
               <Eyebrow variant="action">Cómo participar</Eyebrow>
               <h2 id="donar-title" className="t-section mt-7 text-forest">
                 Donar un juguete
@@ -39,7 +39,7 @@ export function HowToDonate() {
                 Solo necesitas elegir un juguete, revisar algunas recomendaciones y llevarlo a uno de nuestros puntos de acopio.
               </p>
             </div>
-            <Illo name="donar-toy-box" alt="Caja de cartón llena de juguetes" className="reveal-late mx-auto w-full max-w-[300px] lg:mr-0" />
+            <Illo name="donar-toy-box" alt="Caja de cartón llena de juguetes" className="reveal-late parallax mx-auto w-full max-w-[300px] lg:mr-0 [--px:14px]" />
           </div>
 
           {/* Un solo panel con tres pasos: el orden se lee de corrido, no como tres tarjetas iguales. */}
@@ -56,7 +56,7 @@ export function HowToDonate() {
             ))}
           </ol>
 
-          <div className="reveal mt-5 grid gap-5 lg:grid-cols-[1.1fr_1fr]">
+          <div className="reveal mt-5 grid gap-5 lg:grid-cols-[1.1fr_1fr]" data-stagger data-stagger-step="140">
             <div className="rounded-[32px] bg-forest p-7 text-cream md:p-10">
               <h3 className="flex items-center gap-4 text-[32px] leading-none font-black tracking-[-0.02em] text-golden">
                 <Check className="size-9" strokeWidth={3.5} aria-hidden /> Qué sí
@@ -88,7 +88,7 @@ export function HowToDonate() {
         <div className="mt-20 bg-sky-field py-16 md:mt-28 md:py-20">
           <Container>
             <div className="grid gap-10 lg:grid-cols-[260px_1fr] lg:items-center lg:gap-14">
-              <div className="reveal">
+              <div className="reveal" data-stagger>
                 <h3 className="t-block text-forest">¿No sabes qué elegir?</h3>
                 <p className="mt-3 text-base leading-[26px]">Aquí algunas ideas de juguetes que siempre alegran:</p>
               </div>
@@ -110,7 +110,7 @@ export function HowToDonate() {
       <section aria-labelledby="listo-title" className="bg-cream pt-14 md:pt-20">
         <Container className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
           <div className="flex items-center gap-5">
-            <Illo name="deco-heart-rays" className="w-14 shrink-0" />
+            <Illo name="deco-heart-rays" className="m-pulse w-14 shrink-0" />
             <div>
               <h3 id="listo-title" className="t-block text-forest">¿Ya tienes tu juguete?</h3>
               <p className="mt-1 text-lg">Encuentra dónde entregarlo.</p>

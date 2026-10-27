@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils"
 
 /** Botones de la campaña (docs/brief.md §13–14). */
 const buttonVariants = cva(
-  "group/button inline-flex shrink-0 items-center justify-center gap-2 rounded-full border-2 font-display font-extrabold tracking-[-0.01em] whitespace-nowrap transition-[transform,background-color,color] duration-200 ease-out outline-none select-none hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] focus-visible:ring-4 focus-visible:ring-golden focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 motion-reduce:hover:translate-y-0 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-5",
+  "group/button inline-flex shrink-0 items-center justify-center gap-2 rounded-full border-2 font-display font-extrabold tracking-[-0.01em] whitespace-nowrap transition-[transform,translate,scale,background-color,color] duration-200 ease-out outline-none select-none [&>svg:last-child]:transition-[translate] [&>svg:last-child]:duration-200 [&>svg:last-child]:ease-out hover:[&>svg:last-child]:translate-x-1 motion-reduce:hover:[&>svg:last-child]:translate-x-0 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] focus-visible:ring-4 focus-visible:ring-golden focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 motion-reduce:hover:translate-y-0 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-5",
   {
     variants: {
       variant: {

@@ -121,7 +121,8 @@ export function Card({ className, children }: { className?: string; children: Re
   return <div className={cn("rounded-[32px] bg-white", className)}>{children}</div>
 }
 
-export function ProgressBar({ current, goal, className, track = "light" }: { current: number; goal: number; className?: string; track?: "light" | "dark" }) {
+/** trigger="load": se llena al cargar (hero, ya visible). trigger="view" (por defecto): se llena al entrar en pantalla. */
+export function ProgressBar({ current, goal, className, track = "light", trigger = "view" }: { current: number; goal: number; className?: string; track?: "light" | "dark"; trigger?: "load" | "view" }) {
   const pct = Math.min(current / goal, 1) * 100
   return (
     <div
@@ -133,7 +134,8 @@ export function ProgressBar({ current, goal, className, track = "light" }: { cur
       className={cn("h-4 w-full overflow-hidden rounded-full", track === "light" ? "bg-forest/15" : "bg-cream/90", className)}
     >
       <div
-        className="bar-fill h-full rounded-full bg-coral"
+        className={cn("h-full rounded-full bg-coral", trigger === "load" ? "bar-load" : "bar-fill")}
+        data-reveal-style={trigger === "view" ? "bar" : undefined}
         style={{ width: `${pct}%` }}
       />
     </div>
