@@ -24,30 +24,30 @@ export function Footer() {
               Una iniciativa comunitaria para reunir juguetes y compartir esta Navidad con niñas y niños de una comunidad de Huimanguillo.
             </p>
             <div className="mt-5 flex gap-3">
-              <a href={c.instagramUrl} target="_blank" rel="noopener noreferrer" className="flex size-11 items-center justify-center rounded-full bg-cream text-forest hover:bg-golden">
-                <InstagramIcon className="size-5" />
+              <a href={c.instagramUrl} target="_blank" rel="noopener noreferrer" className="flex size-12 items-center justify-center rounded-full bg-cream text-forest transition-[background-color,transform] duration-200 hover:-translate-y-0.5 hover:bg-golden motion-reduce:hover:translate-y-0">
+                <InstagramIcon className="size-5" title="Instagram (se abre en una pestaña nueva)" />
               </a>
-              <a href={c.facebookUrl} target="_blank" rel="noopener noreferrer" className="flex size-11 items-center justify-center rounded-full bg-cream text-forest hover:bg-golden">
-                <FacebookIcon className="size-5" />
+              <a href={c.facebookUrl} target="_blank" rel="noopener noreferrer" className="flex size-12 items-center justify-center rounded-full bg-cream text-forest transition-[background-color,transform] duration-200 hover:-translate-y-0.5 hover:bg-golden motion-reduce:hover:translate-y-0">
+                <FacebookIcon className="size-5" title="Facebook (se abre en una pestaña nueva)" />
               </a>
             </div>
           </div>
           <nav aria-labelledby="f-explora" className="lg:px-8">
             <h2 id="f-explora" className="font-display text-2xl font-black text-golden">Explora</h2>
-            <ul className="mt-4 space-y-1">
+            <ul className="mt-3 space-y-0">
               {explora.map((l) => (
                 <li key={l.href}>
-                  <a href={l.href} className="inline-block py-1 text-base text-cream/90 hover:text-golden">{l.label}</a>
+                  <a href={l.href} className="inline-flex min-h-11 items-center text-base text-cream/90 underline-offset-4 transition-colors hover:text-golden hover:underline lg:min-h-9">{l.label}</a>
                 </li>
               ))}
             </ul>
           </nav>
           <nav aria-labelledby="f-participa" className="lg:px-8">
             <h2 id="f-participa" className="font-display text-2xl font-black text-golden">Participa</h2>
-            <ul className="mt-4 space-y-1">
+            <ul className="mt-3 space-y-0">
               {participa.map((l) => (
                 <li key={l.label}>
-                  <a href={l.href} className="inline-block py-1 text-base text-cream/90 hover:text-golden">{l.label}</a>
+                  <a href={l.href} className="inline-flex min-h-11 items-center text-base text-cream/90 underline-offset-4 transition-colors hover:text-golden hover:underline lg:min-h-9">{l.label}</a>
                 </li>
               ))}
             </ul>
@@ -56,9 +56,9 @@ export function Footer() {
             <h2 className="font-display text-2xl font-black text-golden">Contacto</h2>
             <ul className="mt-4 space-y-6">
               <li>
-                <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 hover:text-golden">
+                <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="flex min-h-12 items-center gap-4 transition-colors hover:text-golden">
                   <span className="flex size-12 items-center justify-center rounded-full bg-cream text-[#25D366]">
-                    <WhatsAppIcon className="size-7" />
+                    <WhatsAppIcon className="size-7" decorative />
                   </span>
                   <span>
                     <span className="block font-bold">WhatsApp</span>
@@ -67,7 +67,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href={`mailto:${c.email}`} className="flex items-center gap-4 hover:text-golden">
+                <a href={`mailto:${c.email}`} className="flex min-h-12 items-center gap-4 transition-colors hover:text-golden">
                   <span className="flex size-12 items-center justify-center rounded-full bg-cream text-forest">
                     <Mail className="size-6" aria-hidden />
                   </span>
@@ -88,9 +88,9 @@ export function Footer() {
             Hecho con el apoyo de todas las personas que decidieron sumarse.
           </p>
           <p className="flex items-center gap-4 font-semibold">
-            <a id="aviso-de-privacidad" href={c.privacyUrl} className="py-2 hover:text-golden">Aviso de privacidad</a>
+            <a id="aviso-de-privacidad" href={c.privacyUrl} className="inline-flex min-h-11 items-center underline-offset-4 transition-colors hover:text-golden hover:underline">Aviso de privacidad</a>
             <span aria-hidden className="text-cream/40">|</span>
-            <a href={`mailto:${c.email}`} className="py-2 hover:text-golden">Contacto</a>
+            <a href={`mailto:${c.email}`} className="inline-flex min-h-11 items-center underline-offset-4 transition-colors hover:text-golden hover:underline">Contacto</a>
           </p>
         </div>
       </Container>

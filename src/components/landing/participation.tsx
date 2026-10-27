@@ -3,7 +3,7 @@ import { whatsappUrl, campaign } from "@/content/campaign.config"
 import type { IllustrationName } from "@/content/illustrations"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-import { Container, Eyebrow, Illo, Section } from "./primitives"
+import { Container, Eyebrow, Illo, NewTab, Section } from "./primitives"
 
 type ParticipationOption = { title: string; description: string; illustration: IllustrationName; action: string; href: string; decos: { name: IllustrationName; className: string }[] }
 
@@ -45,7 +45,7 @@ const options: ParticipationOption[] = [
 
 function ParticipationCard({ o, n }: { o: ParticipationOption; n: number }) {
   return (
-    <li className="flex flex-col rounded-[24px] border-2 border-line bg-white/60 p-6">
+    <li className="flex flex-col rounded-[24px] border-2 border-line bg-white/60 p-6 transition-[box-shadow,border-color] duration-200 hover:border-forest/30 hover:shadow-soft">
       <div className="relative flex h-44 items-center justify-end">
         <span className="absolute top-0 left-0 font-display text-6xl leading-none font-black text-coral">{String(n).padStart(2, "0")}</span>
         <Illo name={o.illustration} className="max-h-44 w-auto max-w-[78%]" />
@@ -56,7 +56,7 @@ function ParticipationCard({ o, n }: { o: ParticipationOption; n: number }) {
       <h3 className="mt-4 text-[26px] leading-tight font-extrabold text-forest">{o.title}</h3>
       <p className="mt-2 flex-1 text-base leading-[26px]">{o.description}</p>
       <a href={o.href} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "secondary" }), "mt-5 w-full")}>
-        {o.action} <ArrowRight aria-hidden />
+        {o.action} <NewTab /> <ArrowRight aria-hidden />
       </a>
     </li>
   )

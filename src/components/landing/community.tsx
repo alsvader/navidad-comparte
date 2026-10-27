@@ -36,7 +36,7 @@ export function CommunitySection() {
               {stats.map((s) => (
                 <div key={s.small} className="flex flex-col items-center px-2">
                   <Illo name={s.illo} className="h-10 w-auto" />
-                  <dd className="order-2 mt-2 font-display text-lg leading-tight font-black text-coral md:text-2xl">{s.big}</dd>
+                  <dd className="order-2 mt-2 font-display text-lg leading-tight font-black text-coral-strong md:text-2xl">{s.big}</dd>
                   <dt className="order-3 text-sm">{s.small}</dt>
                 </div>
               ))}

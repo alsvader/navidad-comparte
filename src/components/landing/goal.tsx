@@ -47,7 +47,7 @@ export function GoalSection() {
                     ) : (
                       <>
                         Nos faltan <br />
-                        <span className="text-coral">{p.remaining} regalos</span>
+                        <span className="text-coral-strong">{p.remaining} regalos</span>
                       </>
                     )}
                   </p>

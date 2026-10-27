@@ -110,7 +110,7 @@ export function TransparencySection() {
         <div className="mt-5 grid gap-5 rounded-[24px] bg-coral-soft p-6 md:grid-cols-[auto_1fr_1fr] md:items-center">
           <Illo name="transparencia-calendar-2026" className="w-36" />
           <p className="font-display text-xl leading-snug font-extrabold text-forest md:border-x-2 md:border-line md:px-6">
-            Después de la entrega, esta sección se convertirá en <span className="block text-3xl font-black text-coral">Resultados {campaign.year}.</span>
+            Después de la entrega, esta sección se convertirá en <span className="block text-3xl font-black text-coral-strong">Resultados {campaign.year}.</span>
           </p>
           <p className="text-[15px]">
             Aquí publicaremos el informe final con todos los detalles de la campaña: número de juguetes, comunidad beneficiada, fotos y principales
