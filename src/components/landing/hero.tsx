@@ -48,18 +48,20 @@ export function Hero() {
             <p className="mt-3 text-[15px] text-ink/80">Última actualización: {campaign.lastUpdated}</p>
           </div>
         </div>
-        <div className="relative mx-auto w-full max-w-[580px]" data-pointer-parallax>
-          {/* Capas con profundidad: el puntero las desplaza en sentido contrario (data-depth) y cada una flota despacio. */}
-          <div data-depth="10" className="relative mx-auto w-[82%]">
+        <div className="relative mx-auto w-full max-w-[540px]" data-pointer-parallax>
+          {/* Capas con profundidad: el puntero las desplaza en sentido contrario (data-depth) y cada una flota despacio.
+              El «100» va detrás y el montón de regalos solo le muerde el borde inferior (como en el mockup): el margen
+              negativo es de ~14% del ancho para que ni el paralaje ni la flotación lo tapen más de ~1/4. */}
+          <div data-depth="10" className="relative mx-auto w-[90%]">
             <Illo name="hero-100" priority className="enter-pop m-float w-full [--dur:8s] [--i:0]" />
           </div>
-          <div data-depth="22" className="relative -mt-[34%] w-full">
+          <div data-depth="22" className="relative -mt-[14%] w-full">
             <Illo
               name="hero-gifts-teddy"
               priority
               alt="Pila de regalos con un oso de peluche, una pelota y un carrito"
               className="enter-pop m-float w-full [--delay:-3s] [--dur:9s] [--i:1]"
-              sizes="(min-width: 1024px) 580px, 90vw"
+              sizes="(min-width: 1024px) 540px, 90vw"
             />
           </div>
           <Illo name="deco-holly" className="m-sway absolute bottom-6 -left-6 w-20 -rotate-12" />
