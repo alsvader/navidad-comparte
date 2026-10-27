@@ -19,7 +19,7 @@ export function Footer() {
       <Container className="pt-4 pb-10 md:pt-8">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.25fr_0.9fr_1.15fr_1.45fr]">
           <div className="lg:pr-8">
-            <Illo name="footer-logo-lockup" alt="Navidad que se comparte · Huimanguillo, Tabasco" className="w-[260px]" />
+            <Illo name="footer-logo-lockup-no-location" alt="Navidad que se comparte" className="w-[260px]" />
             <p className="on-dark mt-5 text-base leading-[28px] text-cream/90">
               Una iniciativa comunitaria para reunir juguetes y compartir esta Navidad con niñas y niños de una comunidad de Huimanguillo.
             </p>
